@@ -1,7 +1,5 @@
 <script setup lang="ts"></script>
 
 <template>
-  <header></header>
-
-  <main></main>
+  <main>默认111111111111111111111111111111111111111111</main>
 </template>

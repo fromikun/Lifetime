@@ -48,7 +48,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="grid *:bg-[#91c9a8] *:hover: bg-[#43ba73] gap-4">
+  <div class="flex flex-col *:bg-[#91c9a8] *:hover: bg-[#43ba73] gap-4">
     <div>
       <el-input v-model="names" type="text" placeholder="输入名字" />
       <el-button type="primary" @click="add">添加</el-button>

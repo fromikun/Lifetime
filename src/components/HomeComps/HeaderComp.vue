@@ -3,5 +3,5 @@
 </script>
 
 <template>
-  <div></div>
+  <div>我来组成头部</div>
 </template>
