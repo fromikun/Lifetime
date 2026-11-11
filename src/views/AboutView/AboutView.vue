@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { ElMessage, ElMessageBox } from 'element-plus'
 
 interface Select {
   name: string
@@ -19,12 +20,26 @@ const save = () => {
   localStorage.setItem('finishData', data)
 }
 const removed = (keys: string) => {
-  const res = confirm('Are you sure?')
-  if (res) {
-    const index = finishArr.value.findIndex((i) => i.key === keys)
-    if (index !== -1) finishArr.value.splice(index, 1)
-    save()
-  }
+  ElMessageBox.confirm('Are you sure?', '提示', {
+    confirmButtonText: '确认',
+    cancelButtonText: '取消',
+    type: 'warning',
+  })
+    .then(() => {
+      const index = finishArr.value.findIndex((i) => i.key === keys)
+      if (index !== -1) finishArr.value.splice(index, 1)
+      save()
+      ElMessage({
+        type: 'success',
+        message: '删除完成',
+      })
+    })
+    .catch(() => {
+      ElMessage({
+        type: 'info',
+        message: '取消删除',
+      })
+    })
 }
 const add = () => {
   const keyIndex = Number(finishArr.value[finishArr.value.length - 1]?.key || 0) + 1

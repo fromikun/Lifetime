@@ -1,9 +1,17 @@
-import IndexView from '@/views/HomeView/IndexView.vue'
+interface Children {
+  path: string
+  name: string
+  component: () => void
+  meta: {
+    text: string
+    icon: string
+  }
+}
 
 export default {
   path: '/',
   name: 'index',
-  component: IndexView,
+  component: () => import('@/views/HomeView/IndexView.vue'),
   children: [
     {
       path: '',
@@ -50,5 +58,5 @@ export default {
         icon: 'SwitchFilled',
       },
     },
-  ],
+  ] satisfies Children[],
 }

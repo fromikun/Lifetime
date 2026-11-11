@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
-import { routes } from '@/router/index'
+import routes from '@/router/modules/home'
 </script>
 
 <template>
-  <main class="h-full w-max border-15">
+  <main class="h-full w-max border">
     <nav class="flex flex-col p-2 *:flex *:items-center gap-3">
-      <RouterLink :to="{ name: item.name }" v-for="item in routes[0]?.children" :key="item.path">
+      <RouterLink :to="{ name: item.name }" v-for="item in routes.children" :key="item.path">
         <el-button size="large" type="primary">
           <el-icon>
             <component :is="item.meta.icon"></component>
